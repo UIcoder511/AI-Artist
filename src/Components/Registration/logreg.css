@@ -1,0 +1,82 @@
+.input{
+    width: 100%;
+    height: 35px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size:14px;
+    padding-left: 5px;
+    
+}
+
+.input:focus{
+   
+    outline:#666666 1px auto;
+}
+
+.input::placeholder{
+    opacity: 0.7;
+    /* padding-left: 5px; */
+}
+
+
+.inputButton{
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #dd2600;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding:0;
+}
+
+.inputButton:hover{
+    opacity: 0.9;
+
+
+}
+
+
+.error{
+    outline: auto red 1px;
+
+}
+
+.error:focus{
+   
+    outline:red 1px auto;
+}
+
+.errorMessage{
+    position: relative;
+    color: red;
+    font-size: 12px;
+    top: -10px;
+}
+
+
+
+
+
+@media  only screen and (max-width: 400px){
+    .inputButton{
+        font-size: 10px;
+
+    }
+
+    .input::placeholder{
+        font-size: 10px;
+    }
+
+    .errorMessage{
+        font-size: 10px;
+    }
+
+    .profile-pic-btn{
+        font-size: 10px;
+    }
+    
+}

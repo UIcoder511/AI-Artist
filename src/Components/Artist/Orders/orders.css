@@ -1,0 +1,95 @@
+.single-order-container{
+    box-shadow: 0px 0px 8px 1px #aaaaaa;
+    border-radius: 28px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: 0.2s all;
+    width: 90%;
+}
+
+
+.o-images-container{
+    display: inline-flex;
+    margin: 10px 10px 10px 60px;
+}
+
+.o-pic{
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    background-origin: content-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px #888888;
+    margin-right: 20px;
+    transition: 1s all;
+}
+
+
+.order-no{
+    text-align: center;
+    color: #dd2600;
+    display: block;
+    /* left: 0; */
+    /* right: 0; */
+    /* margin: 10px 0px; */
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.date{
+    top: 0;
+    position: absolute;
+    left: 60px;
+}
+
+.time{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 60px;
+}
+
+.o-price{
+    margin-left: 60px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.o-add-title,.o-a-title{
+    color: #dd2600;
+    font-weight: 600;
+    font-size: 20px;
+    /* margin-left: 10px; */
+    margin: 0;
+    margin-left: 60px;
+}
+
+
+.o-add{
+    margin: 0px 10px 0px 60px;
+    padding-bottom: 10px;
+}
+
+.o-a-pic{
+       /* position: absolute; */
+       width: 35px;
+       height: 35px;
+       /* top: 0; */
+       /* bottom: 0; */
+       margin-top: 10px;
+       margin-left: 60px;
+       border-radius: 100px;
+       box-shadow: 0px 0px 4px 1px #777777;
+       object-fit: cover;
+
+}
+
+.o-a-name,.o-a-email{
+    margin: 0;
+    margin-left: 60px;
+}
+
+.o-a-email{
+    padding-bottom: 20px;
+}

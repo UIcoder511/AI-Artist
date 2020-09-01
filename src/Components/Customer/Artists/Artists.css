@@ -1,0 +1,231 @@
+.single-artist{
+    box-shadow: 0px 0px 8px 1px #aaaaaa;
+    border-radius: 28px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: 0.2s all;
+    width: 90%;
+}
+
+.single-artist:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 1px #696969;
+}
+
+.full-single-artist{
+    box-shadow: 0px 0px 8px 1px #aaaaaa;
+    border-radius: 28px;
+    position: relative;
+    margin-bottom: 20px;
+    /* transition: 0.2s all; */
+    width: 90%;
+}
+
+.artist-pic{
+
+    
+
+}
+
+.a-pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 7px 1px #aaaaaa;
+    margin: 10px 0px 0px 10px;
+    object-fit: cover;
+    
+}
+
+.a-name{
+    display: inline-flex;
+    top: 0;
+    /* bottom: 0; */
+    position: absolute;
+    margin-left: 60px;
+    font-weight: 600;
+}
+
+.artist-name{
+ 
+
+}
+
+.all-artworks,.full-all-artworks{
+    display: inline-flex;
+    margin: 10px 10px 10px 60px;
+}
+
+
+
+
+.art-item{
+    
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    background-origin: content-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px #888888;
+    margin-right: 20px;
+    /* transition: 1s all; */
+}
+
+.art-item-full{
+    height: 250px;
+    width: 200px;
+    object-fit: cover;
+    background-origin: content-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px #888888;
+    margin-right: 20px;
+    /* transition: 0.4s all; */
+}
+
+.art-item-full:hover{
+    box-shadow: 0px 0px 5px 2px #888888;
+    cursor: pointer;
+    /* z-index: 3; */
+}
+
+.art-items{
+    /* transition: 1s all; */
+    position: relative;
+}
+
+
+.art-price{
+
+    /* top: 0;  */
+    display: block;
+    width: 100px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: #dd2600;
+    opacity: 0.8;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 7px;
+    border-radius: 0px 0px 10px 10px;
+    /* line-height: 16px;*/
+    /* transition: 1s all; */
+}
+
+.art-price-full{
+    display: block;
+    width: 200px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: #dd2600;
+    opacity: 0.8;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 7px;
+    border-radius: 0px 0px 10px 10px;
+    /* transition: 0.4s all; */
+}
+
+.art-dolors{
+    position: absolute;
+    display: flex;
+    /* top: 0; */
+    bottom: 0;
+    font-size: 12px;
+    margin-bottom: 7px;
+    color: white;
+    left: 7px;
+    transition: 0.4s all;
+}
+
+.art-dolors-full{
+    position: absolute;
+    display: flex;
+    /* top: 0; */
+    bottom: 0;
+    font-size: 12px;
+    margin-bottom: 7px;
+    color: white;
+    left: 7px;
+    transition: 0.4s all;
+}
+
+
+.plus-icon{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    display: none;
+    align-items: center;
+    text-align: center;
+    height: 250px;
+    width: 200px;
+    border: none;
+    /* border: 2px dotted #dd2600; */
+    color: #dd2600;
+    font-size: 30px;
+    opacity: 0.6;
+    background-color: white;
+    border-radius: 10px;
+    transition: 1s all;
+    /* box-shadow: 0px 0px 10px 2px #888888;*/
+}
+
+.art-items:hover .plus-icon{
+    display: grid;
+    cursor: pointer;
+    transition: 1s all;
+}
+
+
+.back-btn-icon{
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.back-btn-icon:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+@media  only screen and (max-width: 400px){
+    .art-item{
+        width: 70px;
+        height: 100px;
+    }
+
+    .art-price{
+        width: 70px;
+        font-size: 10px !important;
+    }
+
+    .art-dolors{
+        font-size: 10px !important;
+    }
+
+    .all-artworks{
+        
+        padding-bottom: 5px;
+    }
+
+    .full-all-artworks{
+        display: block !important;
+        padding-bottom: 5px;
+    }
+
+    .full-single-artist{
+        margin: auto;
+    }
+
+    .art-items{
+        margin-bottom: 15px;
+    }
+}

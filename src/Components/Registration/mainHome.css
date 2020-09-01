@@ -1,0 +1,57 @@
+.btn{
+
+  position: relative;
+  top: 420px;
+  border: none;
+
+  padding: 12px;
+  font-size: 12px; 
+  color: white;
+  border-radius: 100px;
+   
+    transition: all 0.2s;
+    box-shadow: 0px 0px 10px 1px #aaaaaa;
+}
+.btn:hover{
+    opacity: 0.8;
+}
+
+
+
+
+.mainDiv{
+    box-shadow: 0px 0px 10px 1px #aaaaaa;
+    width: 35vw; 
+     height: 500px;
+     
+}
+
+.displayGrid{
+    margin-top: 130px;
+    text-align: center;
+    display: grid;
+    grid-template-columns:auto auto;
+    grid-column-gap: 20px;
+    justify-content: center;
+}
+
+
+@media  only screen and (max-width: 400px){
+    .displayGrid{
+        display: block;
+        margin-top: 130px; 
+      
+    }
+
+    .mainDiv{
+        width: 90%;
+    height: 200px;
+    /* margin-bottom: 20px; */
+    /* margin-top: 10px; */
+    margin: 10px auto;
+    }
+
+    .btn{
+        top: 140px;
+    }
+}

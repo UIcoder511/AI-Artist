@@ -1,0 +1,55 @@
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.tab-list-item{
+    
+    list-style: none;
+    /* float: left; */
+    flex: 1;
+    font-weight: 600;
+    cursor: pointer;
+    padding-bottom: 10px;
+    color: #666666;
+    text-align: center;
+}
+
+.tab-list-active{
+    border-bottom: #dd2600 solid;
+    /* transition: 0.5s; */
+    color: #dd2600;
+}
+
+.tab-list{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 10;
+    padding: 0;
+}
+
+.reglog{
+    width: 90%;
+    background: #dd2600;
+    padding: 10px;
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.reglog:hover{
+    opacity: 0.9;
+}
+
+
+
+
+
+
+@media  only screen and (max-width: 400px){
+    .tab-list-item{
+        font-size: 12px;
+
+    }
+}

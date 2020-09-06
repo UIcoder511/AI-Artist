@@ -32,13 +32,13 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                <input placeholder='Email' type="text" id="email" className='input' name='email' onChange={this.handler} value={this.state.email}/><br/>
-                <input placeholder='Password' type="password" id="password" className='input' name='password' onChange={this.handler} value={this.state.password}/> 
+            
+                <form className='form'>
+                <input autoComplete='on' placeholder='Email' type="text" id="email" className='input' name='email' onChange={this.handler} value={this.state.email}/>
+                <input autoComplete='on' placeholder='Password' type="password" id="password" className='input' name='password' onChange={this.handler} value={this.state.password}/> 
                 <button type='submit' onClick={this.login} className='inputButton'>Login</button>
                 </form>
-            </div>
+            
         )
     }
 }

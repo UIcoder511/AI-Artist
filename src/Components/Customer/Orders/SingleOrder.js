@@ -13,6 +13,9 @@ class SingleOrder extends Component {
                 aName,
                 aEmail,
                 aPic,
+                cusName,
+                cusEmail,
+                cusPic,
                 contentImage,
                 styleImage,
                 stylizedImage,
@@ -26,27 +29,47 @@ class SingleOrder extends Component {
                     state,
                     city
                 }
-            }
+            },
+            loggedinCustomer
             
 
         }=this.props
 
+
+        var name,pic,email,title;
+
+        if(!loggedinCustomer)
+        {
+            name=cusName;
+            email=cusEmail;
+            title='Customer';
+            pic=cusPic;
+        }
+        else{
+            name=aName;
+            email=aEmail;
+            title='Artist';
+            pic=aPic;
+
+        }
+
         return (
             <div className='single-order-container'>
-                <p className='order-no'>#{orderId}</p>
+                
                 <p className='date'>{date}</p>
+                <p className='order-no'>#{orderId}</p>
                 <p className='time'>{time}</p>
 
                 <div className='o-a-data'>
-                    <p className='o-a-title'>Artist</p>
+                    <p className='o-a-title'>{title} </p>
 
                     <div className='o-a-profile'>
-                        <img src={aPic} className='o-a-pic' />
-                        <p className='o-a-name'>{aName}</p>
+                        <img src={pic} className='o-a-pic' />
+                        <p className='o-a-name'>{name}</p>
                     </div>
                    
                     
-                    <p className='o-a-email'>{aEmail}</p>
+                    <p className='o-a-email'>{email}</p>
                 </div>
 
 

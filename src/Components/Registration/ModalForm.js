@@ -9,16 +9,19 @@ class ModalForm extends Component {
         const {who}=this.props
         return (
             <Modal show={this.props.show} onClose={this.props.onClose}>
-                <p id="titleReg">{who}</p>
-                 <Tabs>
-                         <div label='Login'>
-                            <Login who={who}/>
-                            {/* <button className='reglog'>Login</button> */}
-                         </div>
-                         <div label='Register'>
-                             <Register  who={who} />
-                         </div>
-                </Tabs>
+                <div className="log-reg-container">
+                    <p className="titleReg">{who}</p>
+                    <Tabs>
+                            <div label='Login'>
+                                <Login who={who}/>
+                                {/* <button className='reglog'>Login</button> */}
+                            </div>
+                            <div label='Register'>
+                                <Register  who={who} />
+                            </div>
+                    </Tabs>
+                </div>
+                
             </Modal>
         )
     }

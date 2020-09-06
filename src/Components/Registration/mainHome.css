@@ -1,57 +1,60 @@
 .btn{
 
   position: relative;
-  top: 420px;
+  top: calc(100% - 60px);
   border: none;
 
   padding: 12px;
   font-size: 12px; 
-  color: white;
+  color: var(--secondary);
   border-radius: 100px;
    
-    transition: all 0.2s;
-    box-shadow: 0px 0px 10px 1px #aaaaaa;
+  transition: all 0.2s;
+  background-color: var(--primary);     
 }
 .btn:hover{
-    opacity: 0.8;
+    background: var(--primary-light);
+    cursor: pointer;
 }
 
 
 
 
 .mainDiv{
-    box-shadow: 0px 0px 10px 1px #aaaaaa;
-    width: 35vw; 
-     height: 500px;
-     
+    box-shadow: var(--boxShadow);
+    width: 100%; 
+    /* height: 500px; */
+    justify-self: center;
+    /* background-size: auto; */
+}
+
+.mainDiv.mainartist{
+    background: url("../../artist.png");
+    background-size: cover;
+}
+
+.mainDiv.maincustomer{
+    background: url("../../customer.png");
+    background-size: cover;
 }
 
 .displayGrid{
-    margin-top: 130px;
+    margin: 120px 15px 15px 15px;
     text-align: center;
     display: grid;
-    grid-template-columns:auto auto;
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
     justify-content: center;
+    height: calc(100vh - 120px - 15px);
 }
 
 
-@media  only screen and (max-width: 400px){
+@media  only screen and (max-width: 700px){
     .displayGrid{
-        display: block;
-        margin-top: 130px; 
+        grid-template-columns: 1fr;
+       
       
     }
 
-    .mainDiv{
-        width: 90%;
-    height: 200px;
-    /* margin-bottom: 20px; */
-    /* margin-top: 10px; */
-    margin: 10px auto;
-    }
-
-    .btn{
-        top: 140px;
-    }
+   
 }

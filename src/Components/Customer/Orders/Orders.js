@@ -13,8 +13,12 @@ class Orders extends Component {
     }
 
     updateOrders=()=>{
-        let cusId=fire.auth().currentUser.uid
-        let dataref=fire.database().ref('Users/Customer/'+cusId+'/Orders');
+        let userID=fire.auth().currentUser.uid
+
+        let dataref=this.props.loggedinCustomer?
+            fire.database().ref('Users/Customer/'+userID+'/Orders'):
+            fire.database().ref('Users/Artist/'+userID+'/Orders');
+
         this.setState({orders:[]})
         dataref.on('value',(snap)=>{
             console.log(snap.val())
@@ -47,11 +51,11 @@ class Orders extends Component {
 
     render() {
         return (
-            <div>
+            <div className='orders'>
                 {
                     this.state.orders.map(order=>{
                         return(
-                            <SingleOrder order={order}/>
+                            <SingleOrder order={order} loggedinCustomer={this.props.loggedinCustomer}/>
                         )
                     })
                 } 

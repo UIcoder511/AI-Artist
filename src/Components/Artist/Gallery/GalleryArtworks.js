@@ -13,22 +13,12 @@ class GalleryArtworks extends Component {
              artworkData:this.props.data
         }
     }
-    
-
-    // dragHandler=(e)=>{
-    //     console.log(e.target.src)
-    // }
-
-    // dragRemove=()=>{
-    //     console.log('remove')
-    // }
+   
 
 
 
     updatePrice=(value)=>{
-        //e.preventDefault()
-        // console.log(e.target.getAttribute('data')+" "+e.target.value)
-  // console.log(e.keyCode)
+        
         if(value>=0)
             this.setState({
                 artworkData:{
@@ -45,7 +35,7 @@ class GalleryArtworks extends Component {
 
 
     deleteImage=(e)=>{
-        let key=e.target.getAttribute('dataKey')
+        let key=e.target.getAttribute('datakey')
         let here=this
         const ref=fire.database().ref('Users/Artist/'+here.props.user.uid+'/Artworks/'+key)
         ref.remove();
@@ -75,11 +65,13 @@ class GalleryArtworks extends Component {
             }=this.props
 
         return (
-            <div className="image-item" key={url} style={{position:'relative',display:'flex'}}>
-                <img className='i-item' src={url} onDragStart={this.dragHandler} onDragEnd={this.dragRemove}/>
+            <div className="image-item" key={url} >
+                <img className='i-item' src={url} />
+                <div className='close-container' onClick={this.deleteImage} > <a href="#" className="close delete-image" datakey={this.props.datakey} ></a> </div>
+                
                 <input type='number' className='price' data={url} min='0'  onChange={e=>this.updatePrice(e.target.value)} value={this.state.artworkData.basePrice} />
                 <span className='dolors'>$</span>
-                <a href="#" className="close delete-image" dataKey={this.props.firekey} onClick={this.deleteImage}></a>
+                
             </div>
         )
     }

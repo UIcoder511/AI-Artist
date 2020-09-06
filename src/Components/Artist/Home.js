@@ -4,11 +4,11 @@ import fire from "../config/fire";
 
 //import Gallery from "./Gallery";
 // import ArtworkGallery from './Gallery/Gallery';
-import Gallery from './Gallery/Gallery'
+import Gallery from '../Customer/Gallery/Gallery'
 
 import ArtistNav from "../Nav/Nav";
-import Chats from "./Chats/Chats";
-import Orders from "./Orders/Orders";
+import Chats from "../Customer/Chats/Chats";
+import Orders from "../Customer/Orders/Orders";
 
 class Home extends Component {
 
@@ -46,7 +46,7 @@ class Home extends Component {
         switch(this.state.activeLink)
             {
                 case 'Artworks':
-                   component= <Gallery user={user}/>
+                   component= <Gallery user={user} loggedinCustomer={false}/>
                    break;
 
                 case 'Chats':
@@ -54,7 +54,7 @@ class Home extends Component {
                    break;
 
                 case 'Orders':
-                    component=<Orders  user={user}/>
+                    component=<Orders  user={user} loggedinCustomer={false}/>
                    
             }
 

@@ -175,8 +175,8 @@ class Register extends Component {
          const bgcolor=who==='Artist'?{backgroundColor:'#dd2600'}:{backgroundColor:'dd2600'}//'#2067ba'}
 
         return (
-            <div>
-                <form noValidate>
+            
+                <form noValidate className='form'>
 
                 <input
                   placeholder='Name'
@@ -227,7 +227,7 @@ class Register extends Component {
                     className='inputButton'
                     >Register</button>
                 </form>
-            </div>
+            
         )
     }
 }

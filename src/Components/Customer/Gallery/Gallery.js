@@ -3,6 +3,7 @@ import GalleryImages from "./GalleryImages";
 import Upload from '../../ImageUpload/Upload';
 
 import fire from "../../config/fire";
+import GalleryArtworks from '../../Artist/Gallery/GalleryArtworks';
 
 export class Gallery extends Component {
 
@@ -22,14 +23,16 @@ export class Gallery extends Component {
 
 
     updateGallery=()=>{
-        //  let images=[]
-         // this.setState({images:[]})
-          const ref=fire.database().ref('Users/Customer/'+this.props.user.uid+'/Images');
+        
+          const ref=this.props.loggedinCustomer?
+            fire.database().ref('Users/Customer/'+this.props.user.uid+'/Images'):
+            fire.database().ref('Users/Artist/'+this.props.user.uid+'/Artworks');
+
           ref.on('value',(s)=>{
               this.setState({images:{}})
               console.log(s);
               s.forEach((cs)=>{
-                      console.log(cs.val())
+                    //  console.log(cs.val())
                       this.setState(prevState => ({
                           images: {
                               ...prevState.images, [cs.key]:cs.val()
@@ -62,19 +65,12 @@ export class Gallery extends Component {
                 uploading:true,
                 file:firstFile
             })
-           // upload the first file only
-           // fileUpload.addEventListener('change', function(evt) 
-            //{
-           //console.log('File ');
-               
-    
-                   // uploadTask.on
-           // }); 
+          
     
     
         }
 
-        
+        //Only cutomer//////////////
     addToContent=(url)=>{
         this.props.addToContent(url)
     }
@@ -89,7 +85,7 @@ export class Gallery extends Component {
 
         componentDidMount()
         {
-           console.log('mounted')
+        //    console.log('mounted')
            this.updateGallery();
             
         }
@@ -110,39 +106,30 @@ export class Gallery extends Component {
                 <input id='i-upload' type='file' accept="image/*" onChange={this.addImage} className='add-image' style={{display:'none'}} />
             </div>
 
-            {/* <Gallery images={this.state.images}/> */}
+           
 
-            <div>{
+            {
 
                Object.entries( this.state.images).map(([k,s])=>{
 
-                // return( <div className="image-item" key={s}>
-                //     <img className='i-item' src={s} />
-                // </div>)
+                console.log(s)
 
-                return(
-                    <GalleryImages key={k} dataKey={k} src={s} addToContent={this.addToContent} uid={this.props.user.uid}/>
-                )
+                if(this.props.loggedinCustomer)
+                    return(
+                        <GalleryImages key={k} datakey={k} src={s} addToContent={this.addToContent} uid={this.props.user.uid}/>
+                    )
+                else
+                    return <GalleryArtworks key={k}  firekey={k} data={s} user={this.props.user} />    
+
+                
+
+              
+               
 
                 })
-            }</div>
+            }
 
-            {/* <div>{this.updateGallery()}</div> */}
-            {/* <div className="image-item">
-                <img className='i-item' src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/La_forma.jpg?alt=media&token=cff265d1-ab36-45ad-8f4e-2de5dc26cce7'/>
-            </div>
-            <div className="image-item">
-                <img className='i-item' src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/La_forma.jpg?alt=media&token=cff265d1-ab36-45ad-8f4e-2de5dc26cce7'/>
-            </div>
-            <div className="image-item">
-                <img className='i-item' src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/La_forma.jpg?alt=media&token=cff265d1-ab36-45ad-8f4e-2de5dc26cce7'/>
-            </div>
-            <div className="image-item">
-                <img className='i-item' src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/La_forma.jpg?alt=media&token=cff265d1-ab36-45ad-8f4e-2de5dc26cce7'/>
-            </div>
-            <div className="image-item">
-                <img className='i-item' src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/La_forma.jpg?alt=media&token=cff265d1-ab36-45ad-8f4e-2de5dc26cce7'/>
-            </div> */}
+           
 
         {
         this.state.uploading===true &&

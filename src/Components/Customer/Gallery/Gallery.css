@@ -1,7 +1,24 @@
+
+.gallery{
+    display: flex;
+    flex-flow: wrap;
+    gap: 15px;
+}
+
+
 .image-item{
-    float: left;
-    margin: 10px;
+    /* float: left; */
+    /* margin: 10px; */
    /* cursor: pointer; */
+   position: relative;
+   
+}
+
+.add-image-label,.i-item{
+    height: 300px;
+    width: 250px;
+    cursor: pointer;
+    border-radius: 20px;
 }
 
 
@@ -11,18 +28,16 @@
     display:grid;
     align-items: center;
     text-align: center;
-    height: 300px;
-    width: 250px;
     border: none;
-    border:2px dotted #dd2600;
+    border:2px dotted var(--primary);
     
-    color: #dd2600;
+    color: var(--primary);
     font-size: 30px;
     opacity: 0.6;
     background-color: white;
 
-    border-radius: 20px;
-    box-shadow: 0px 0px 6px 1px #aaaaaa;
+    
+    
 }
 
 .add-image-label:hover{
@@ -31,43 +46,80 @@
 }
 
 .i-item{
-    height: 300px;
-    width: 250px;
+   
     object-fit: cover;
-    background-origin: content-box;
-    border-radius: 20px;
-    box-shadow: 0px 0px 6px 1px #aaaaaa;
-    transition: all 0.2s;
-    cursor: pointer;
+    /* background-origin: content-box; */
+    
+    box-shadow: var(--boxShadow);
+    transition: box-shadow 100ms;
+    
 }
 
 .i-item:hover{
-    box-shadow:0px 0px 6px 2px #999999;
+    box-shadow:0px 0px 5px 1px #999999;
 
 }
 
-
-.delete-image{
-    right: 35px;
-    color: white !important;
+.price-input{
+    position: relative;
     display: block;
-    top: 8px;
-    opacity: 0.7;
 }
 
-.delete-image::before{
-    background: #dd2600!important;
-    /* box-shadow: 0px 0px 5px 0px #dd2600; */
-    border: white solid 1px;
+
+.price-input::before{
+    content:'';
+    position: absolute;
+    /* text-align: center; */
+    /* display: block; */
+    font-size: 12px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: red;
+    color: var(--primary);
+    opacity: 0.8;
 }
 
-.delete-image::after{
-    background: #dd2600 !important;
-    /* box-shadow: 0px 0px 5px 0px #dd2600; */
-    border: white solid 1px;
+/*...........artist...............*/
+
+.price{
+    position: absolute;
+    left: 0px;
+    bottom: 7px;
+    width: -webkit-fill-available;
+    padding-top: 10px;
+    border-radius: 0px 0px 20px 20px;
+    /* -webkit-appearance: textfield; */
+    border: none;
+    opacity: 0.6;
+    padding: 4px 0px 0px 0px;
+    /* padding-left: 50%; */
+    text-align: center;
+    /* vertical-align: middle; */
+    line-height: 35px;
+    color: #dd2600;
+    font-weight: 600;
+    font-size: 15px;
+    
+}
+/* 
+.price::content{
+    content: 'aa';
+} */
+
+
+
+
+.dolors{
+    display: flex;
+    bottom: 7px;
+    position: absolute;
+    /* top: 0; */
+    line-height: 35px;
+    margin-left: 10px;
+    font-weight: 600;
+    color: #dd2600;
 }
 
-.delete-image:hover{
-    opacity: 0.5;
-}
 

@@ -1,35 +1,14 @@
 import React, { Component } from 'react'
-import Modal from '../../Modal/Modal';
-import MessageContainer from "./MessageContainer";
+// import Modal from '../../Modal/Modal';
+// import MessageContainer from "./MessageContainer";
 import fire from '../../config/fire';
 
 class SingleUser extends Component {
 
-    constructor(props) {
-        super(props)
+
+
+
     
-        this.state = {
-             showHover:false,
-             messages:[]
-        }
-    }
-    
-
-    showHoverMessages=()=>{
-
-            this.setState({showHover:true});
-    }
-
-    onClose=()=>{
-        this.setState({showHover:false});
-    }
-
-
-
-    getLastMessageData=(data)=>{
-        if(data!=undefined)
-            return data[Object.keys(data).sort().pop()]
-    }
 
 
     render() {
@@ -38,101 +17,105 @@ class SingleUser extends Component {
 
        const{chatData}=this.props
 
-        let lastMessageData=this.getLastMessageData(chatData)
+        let lastMessageData=this.props.lastmessagedata
 
         const {
-            name,
-            profilePic,
-            userId
-        }=this.props.userdata
+            userdata:{
+                name,
+                profilePic,
+                userId
+            },
+            chatKey,
+            show
+            
+        }=this.props
 
-        if(chatData)
-        {
+        // if(chatData)
+        // {
             let seen=false;
+            let nomessages=false;
+
             let currentUserID=fire.auth().currentUser.uid
-            if(lastMessageData.senderID==currentUserID)
+            if(lastMessageData)
             {
-                seen=true
-            }
-            else if(lastMessageData.read)
-            {
-                seen=true
+               // nomessages=false
+                if(lastMessageData.senderID==currentUserID)
+                {
+                    seen=true
+                }
+                else if(lastMessageData.read)
+                {
+                    seen=true
+                }
+                else{
+                    seen=false
+                }
+
             }
             else{
-                seen=false
+                seen=true
+                nomessages=true
             }
+            
 
 
             return (
                 <>
-                <div className={!seen?'single-artist-unseen':'single-artist'} onClick={this.showHoverMessages}>
-                    <img src={profilePic} className='a-pic'/>
-                    <div className="artist-name">
-                            <p className='a-name'>{name}</p>
-                        </div>
+                <div className={!seen?'chat-single-unseen':'chat-single'} onClick={()=>show(chatKey,userId)}>
+
+                    <img src={profilePic} className='person-pic'/>
+                    
+                    <p className='person-name'>{name}</p>
+                
                     <div className='lastText' >
-                            {lastMessageData.message}
+                            {nomessages?"":lastMessageData.message}
                     </div>
                     <div className='lastTime'>
-                       {lastMessageData.time+" "+lastMessageData.date} 
+                       {nomessages?"":lastMessageData.time} 
                     </div>
                     
-                </div>
-    
-                <Modal onClose={this.onClose} show={this.state.showHover}>
-                    <div className="single-user">
-                        <img src={profilePic} className='a-pic' style={{margin:'auto',display:'block'}}/>
-                        <div className="artist-name">
-                                <p className='a-name' style={{margin:'auto',textAlign:'center',display:'block',position:'relative'}}>{name}</p>
-                        </div>
-    
-                    </div>
-                    <MessageContainer otherUserID={userId} loggedinCustomer={this.props.loggedinCustomer} chatData={chatData} noMessages={false}  />
-                    <></>
-                   
-                    
-                </Modal>
+                </div>          
                 </>
     
             )
 
-        }
+        // }
        
 
-        else
-        {
-            return(
-                <>
-                <div className={'single-artist'} onClick={this.showHoverMessages}>
-                    <img src={profilePic} className='a-pic'/>
-                    <div className="artist-name">
-                            <p className='a-name'>{name}</p>
-                        </div>
-                    <div className='lastText' >
+        // else
+        // {
+        //     return(
+        //         <>
+        //         <div className={'single-artist'} onClick={this.showHoverMessages}>
+        //             <img src={profilePic} className='a-pic'/>
+        //             <div className="artist-name">
+        //                     <p className='a-name'>{name}</p>
+        //                 </div>
+        //             <div className='lastText' >
                             
-                    </div>
-                    <div className='lastTime'>
+        //             </div>
+        //             <div className='lastTime'>
                        
-                    </div>
+        //             </div>
                     
-                </div>
+        //         </div>
     
-                <Modal onClose={this.onClose} show={this.state.showHover}>
-                    <div className="single-user">
-                        <img src={profilePic} className='a-pic' style={{margin:'auto',display:'block'}}/>
-                        <div className="artist-name">
-                                <p className='a-name' style={{margin:'auto',textAlign:'center',display:'block',position:'relative'}}>{name}</p>
-                        </div>
+        //         <Modal onClose={this.onClose} show={this.state.showHover}>
+        //             <div className="single-user">
+        //                 <img src={profilePic} className='a-pic' style={{margin:'auto',display:'block'}}/>
+        //                 <div className="artist-name">
+        //                         <p className='a-name' style={{margin:'auto',textAlign:'center',display:'block',position:'relative'}}>{name}</p>
+        //                 </div>
     
-                    </div>
-                    <MessageContainer otherUserID={userId} loggedinCustomer={this.props.loggedinCustomer} chatData={chatData} noMessages={true} />
-                    <></>
+        //             </div>
+        //             <MessageContainer otherUserID={userId} loggedinCustomer={this.props.loggedinCustomer} chatData={chatData} noMessages={true} />
+        //             <></>
                    
                     
-                </Modal>
-                </>
-            )
-        }
+        //         </Modal>
+        //         </>
+        //     )
+        // }
             
     }
 }

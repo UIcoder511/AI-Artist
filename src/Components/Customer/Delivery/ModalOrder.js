@@ -171,6 +171,15 @@ class ModalOrder extends Component {
           })
       }
 
+    //   checker=(e)=>{
+    //     console.log(e.target)
+    //     if (!document.getElementById('modalContent').contains(e.target)){
+    //         console.log('removed')
+    //         window.removeEventListener('mousedown',this.checker);
+    //         this.props.onClose();
+    //       } 
+    // }
+
 
 
 
@@ -179,11 +188,17 @@ class ModalOrder extends Component {
     {
         // console.log('loaded')
       //  if(this.props.ACwidth)
+            // console.log('added')
+            // window.addEventListener('mousedown',this.checker);
              this.loadModel()
 
 
 
     }
+
+    // componentWillMount(){
+    //   window.removeEventListener('mousedown',this.checker);
+    // }
 
 
     
@@ -209,7 +224,7 @@ class ModalOrder extends Component {
 
 
         return (
-            <div>
+            <>
                 <div className='ACimage-container'>
                                     <div>
                                          <span className='titleAC'>content Image</span>
@@ -224,7 +239,7 @@ class ModalOrder extends Component {
                                         <span className='titleAC'>Output Image</span>
                                         <canvas  alt='Stylized Image' className='stylized-image' id='stylized-image' />
                                     </div>
-                                    <br/>
+                                    
                                     
                                    
                                                        
@@ -247,7 +262,7 @@ class ModalOrder extends Component {
                       :null
                 }
 
-            </div>
+            </>
         )
     }
 }

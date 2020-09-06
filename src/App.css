@@ -1,42 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap');
+
+:root{
+  --boxShadow:0px 0px 5px #aaaaaa !important;
+  --boxShadow-hover:0px 0px 5px 1px #999999 !important;
+  --boRadius:0px 0px 20px 20px;
+  --primary:#dd2600;
+  --primary-light:#ff401a;
+  --secondary:white;
+  --clr-err:red;
+
+  --clr-input-outline:#c2c2c2;
+  --clr-input-active:#7a7a7a;
+
+  --font-face:'Poppins', sans-serif;
+  --f-w-xl:200;
+  --f-w-l:400;
+  --f-w-m:600;
+  --f-w-b:800;
+
+  --padd:30px;
+}
+
+
+
+
+
+
 .App {
   text-align: center;
 }
 
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/**********************************NAV******************************/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
+.mainNav{
+  border-radius: var(--boRadius);
+  /* padding-top: 10px; */
+  box-shadow: var(--boxShadow);
+  /* margin-bottom: 50px; */
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
 }
 
 
+.titleMainHome{
+  text-align: center;
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 600;
+}
 
 .nav{
-  border-radius: 0px 0px 20px 20px;
-  padding:10px 0px;
-  box-shadow: 0px 0px 8px 1px #aaaaaa;
-  margin-bottom: 50px;
+
+ 
+
+  top: 0;
+  display: grid;
+  grid-template-columns:var(--padd) auto 1fr auto var(--padd);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 3;
+  border-radius: var(--boRadius);
+  box-shadow:var(--boxShadow);
 }
+
+#logout-btn{
+  /* margin-left: 190px; */
+  margin: 10px 0px;
+  border-radius: 100px;
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  background-color: #dd2600;
+  transition: all 0.2s;
+}
+
+#logout-btn:hover{
+  opacity: 0.8;
+
+}
+
+
+.profile-pic{
+
+  /* grid-column: 2 / span 1; */
+  /* position: absolute; */
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
+  /* margin-top: 10px; */
+  /* margin-left: 10px; */
+  border-radius: 50%;
+  box-shadow: var(--boxShadow);
+  object-fit: cover;
+}
+
+.profile-pic-lg{
+  border-radius: 50%;
+  box-shadow: var(--boxShadow);
+  object-fit: cover;
+}
+
+.profile-pic:hover{
+  opacity: 0.8;
+}
+
+.profile-ops{
+    display: grid;
+    /* flex-direction: column; */
+    justify-items: center;
+    position: fixed;
+    /* bottom: 0; */
+    right: 10px;
+    top: 65px;
+    box-shadow: var(--boxShadow);
+    padding: 20px 20px 10px 20px;
+    border-radius: 5px;
+    background-color: var(--secondary);
+}
+
+.user-name{
+  display: block;
+  font-weight: 600;
+  /* margin-left: 40%; */
+}
+
+.logo-svg{
+  grid-column: 2 / span 1;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.logo-center{
+  width: 50px;
+ 
+}
+
+
+
+
+
+.nav-links{
+  /* margin-left: 180px; */
+  /* display: flex; */
+  
+  
+}
+
+ul{
+
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  flex-direction: row;
+}
+
+li{
+  font-weight: 500;
+  /* display: initial */
+  text-decoration: none;
+  list-style: none;
+  margin: 0px 10px;
+  color: black;
+  font-weight: 600;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+li:hover{
+  
+}
+
+.nav-active a{
+  opacity: 1;
+  font-weight: 600;
+  color: #dd2600;
+  border-bottom: solid #dd2600 2px;
+}
+
+.fa-bars{
+  display: none;
+}
+
+#navButton{
+  display: none;
+}
+
+
+
+/**********************************NAV******************************/
+
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -51,23 +217,15 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:#dd2600;
+  background:var(--primary);
  
 }
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/***************loader********************************/
 
 .sc-eqIVtm{
-  background-color: #dd2600 !important;
+  background-color: var(--primary) !important;
   transition: 0.2s all !important;
 }
 
@@ -75,24 +233,131 @@
   transition: 0.2s all !important;
 }
 
+@media  only screen and (max-width: 478px){
+    .nav{
+      grid-template-columns: 1fr 1fr 1fr;
+  }
 
-.mainNav{
-  border-radius: 0px 0px 20px 20px;
-    padding: 10px 0px;
-    box-shadow: 0px 0px 8px 3px #aaaaaa;
-    /* margin-bottom: 50px; */
-    top: 0;
-    display: grid;
-    width: 100%;
-    position: fixed;
-    background-color: white;
-    z-index: 1;
+.profile-pic{
+  grid-column: 2 / span 1;
+  height: 30px;
+  width: 30px;
+  justify-self: center;
+}
+
+.logo-svg{
+  grid-column: 1 / 2;
+  width: 40px;
+  margin-left: 10px;
+}
+
+#navButton{
+  justify-self: flex-end;
+  
+  margin-right: 10px;
+}
+
+.fa-bars{
+  
+  
+  display: block;
+  
+ 
+  width: 22px !important;
+  height: 22px !important;
+  color: var(--primary);
+}
+
+#navButton{
+  display: block;
+  z-index: 5;
+  cursor: pointer;
+}
+
+#navButton:hover{
+  opacity: 0.7;
 }
 
 
-.titleMainHome{
-  text-align: center;
-    color: #dd2600;
-    font-size: 20px;
-    font-weight: 600;
+.nav-links{
+  display: none;
+}
+
+
+
+.nav-link{
+ 
+}
+
+.nav-responsive{
+
+  width: 100%;
+  /* height: 150px; */
+  display: block;
+  /* flex-direction: row; */
+  background: white;
+  position: absolute;
+  margin-left: 0;
+  top: 0 !important;
+  box-shadow: 0px 0px 8px 0px #aaaaaa;
+  border-radius: 0px 0px 20px 20px;
+  /* transition: height 0.4s; */
+  animation: navanimation 0.1s ease-in;
+  animation-fill-mode: both;
+
+  }
+
+  @keyframes navanimation {
+
+      0%{
+          height: 0px;
+      }
+
+      100%{
+          height: 150px;
+      }
+      
+  }
+
+  .nav-responsive ul{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+.nav-responsive ul li.nav-link {
+     text-align: center;
+      /* margin: auto; */
+      /* margin-top: 5px; */
+      /* margin-bottom: 5px; */
+      /* transition: all 0.2s; */
+      /* animation: navlinkanimation 0.2s ease-in-out; */
+}
+
+.profile-ops{
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: max-content;
+  top: 50px;
+}
+
+.user-name{
+  font-size: 14px;
+}
+
+.lout{
+  font-size: 10px;
+}
+
+
+
+
+.lout.lout-responsive{
+  display: block !important;
+  top: 108px !important;
+}
+
 }

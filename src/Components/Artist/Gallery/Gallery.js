@@ -10,7 +10,7 @@ export class Gallery extends Component {
         super(props)
     
         this.state = {
-             images:[],
+             images:{},
              uploading:false,
              file:null
         }
@@ -39,41 +39,14 @@ export class Gallery extends Component {
 
     }
 
-    /*
-       // fileUpload.addEventListener('change', function(evt) 
-        //{
-       //console.log('File ');
-            const id=this.makeid(9);
-            const {uid}  = this.props.user
-            let storageRef = fire.storage().ref(uid);
-            let firstFile = e.target.files[0]; // upload the first file only
-            let uploadTask = storageRef.child(e.target.files[0].name).put(firstFile)
-                .then(snapshot => {
-                    snapshot.ref.getDownloadURL().then(function(downloadURL) 
-                        {
-                            console.log('File available at', downloadURL);
-                            const reff=fire.database().ref('Users/Artist/'+uid+'/Artworks/'+id);
-                           // this.makeid(9)
-                            reff.update({
-                                url:downloadURL,
-                                basePrice:0
-                            })
-
-                           // DPURL=downloadURL;
-                        });  // Will return a promise with the download link
-                })
-       // }); 
-
-
-    }*/
+   
 
 
     updateGallery=()=>{
-      //  let images=[]
-       // this.setState({images:[]})
+      
         const ref=fire.database().ref('Users/Artist/'+this.props.user.uid+'/Artworks');
         ref.on('value',(s)=>{
-            this.setState({images:[]})
+            this.setState({images:{}})
             console.log(s);
             s.forEach((cs)=>{
 
@@ -84,12 +57,12 @@ export class Gallery extends Component {
                         } 
                         
                       }));
-                    //images.push(cs.val().toString())
+                    
                     
             })
 
         })
-    //return <p>{images}</p>
+    
        
     }
 

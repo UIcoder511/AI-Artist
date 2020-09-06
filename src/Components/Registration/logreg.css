@@ -1,17 +1,37 @@
+.log-reg-container{
+    width: 500px;
+}
+
+.titleReg{
+    font-weight: var(--f-w-m);
+    text-align: center;
+    margin: 0; 
+    font-size: 20px;
+    
+    }
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .input{
     width: 100%;
     height: 35px;
     margin: 8px 0px;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-face);
     font-size:14px;
     padding-left: 5px;
+    border: none;
+    outline: 1px var(--clr-input-outline) solid;
     
 }
 
-.input:focus{
+  .input:hover , .input:focus{
    
-    outline:#666666 1px auto;
+    outline: 1px var(--clr-input-active) solid !important;
 }
 
 .input::placeholder{
@@ -24,16 +44,16 @@
     width: 100%;
     height: 40px;
     margin-top: 5px;
-    font-family: 'Poppins', sans-serif;
-    background-color: #dd2600;
+    font-family: var(--font-face);
+    background-color: var(--primary);
     border:none;
-    color: white;
+    color: var(--secondary);
     font-size: 15px;
     font-weight: 600;
     padding:0;
 }
 
-.inputButton:hover{
+.inputButton:hover, .inputButton:focus{
     opacity: 0.9;
 
 
@@ -41,42 +61,51 @@
 
 
 .error{
-    outline: auto red 1px;
+    outline: auto var(--clr-err) 1px;
 
 }
 
 .error:focus{
    
-    outline:red 1px auto;
+    outline:var(--clr-err) 1px auto;
 }
 
 .errorMessage{
     position: relative;
-    color: red;
+    color: var(--clr-err);
     font-size: 12px;
-    top: -10px;
+    top: -6px;
+
+    
 }
 
 
+@media  only screen and (max-width: 560px){
+    .log-reg-container{
+        width: auto;
+        /* margin: 0; */
+    }
 
-
-
-@media  only screen and (max-width: 400px){
-    .inputButton{
+    .form *
+    {
         font-size: 10px;
 
     }
 
-    .input::placeholder{
-        font-size: 10px;
+    .tab-list-item{
+        font-size: 12px;
+
+    }
+
+    .titleReg{
+        font-size: 16px;
     }
 
     .errorMessage{
-        font-size: 10px;
+        font-size: 8px;
     }
 
-    .profile-pic-btn{
-        font-size: 10px;
-    }
-    
 }
+
+
+

@@ -1,18 +1,14 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import fire from './Components/config/fire'
 import ArtistHome from "./Components/Artist/Home";
 import CustomerHome from "./Components/Customer/Home";
 import MainHome from "./Components/Registration/MainHome";
 
-import { BoxLoading,NineCellLoading,CircleToBlockLoading } from 'react-loadingg';
+import {CircleToBlockLoading } from 'react-loadingg';
 
 
 
-//import './AppLoader.scss'
-
-//import Loader from 'react-loaders'
 
 class App extends React.Component {
 
@@ -21,11 +17,10 @@ class App extends React.Component {
   
     this.state = {
        user:null,
-      // who:'',
        loggedin:''
     }
 
-    //console.log('co')
+  
   }
 
 
@@ -38,7 +33,7 @@ class App extends React.Component {
          {
           
           const ref=fire.database().ref('Users/Customer');
-          //const ref2=fire.database().ref('Users/Artist');
+          
 
           (async ()=>{
             await ref.once('value')
@@ -51,16 +46,12 @@ class App extends React.Component {
                     this.setState({loggedin:'Artist',user:user})
               })
       
-          // await ref2.once('value')
-          // .then(d=>{
-          //   console.log(d.hasChild(user.uid))
-          // })
+        
 
           })();
             console.log('waited')
          
-           // this.setState({user})
-
+           
          }
             
           else
@@ -70,21 +61,12 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    //await this.checkUser();
+   
     this.authListner();
   }
 
 
-  renderFakeSass() {
-    return `$primary-color: $my-brand-color;
-        @import 'loaders.css/src/animations/ball-rotate.scss'
-        .loader-hidden {
-          display: none;
-        }
-        .loader-active {
-          display: block;
-        }`
-  }
+
 
   
   render()
@@ -131,20 +113,16 @@ class App extends React.Component {
         return(<MainHome />)
 
       }
-     // const data=fire.database().ref()
+    
 
         
     }
     else{
 
       return (
-        // <div>
-        //   {this.state.user ? (<Home/>) : (<Register/>)}
-        // </div>
+        
         <>
-        {/* <Loader type="ball-rotate" /> */}
-        {/* {this.renderFakeSass()} */}
-        <MainHome />
+          <MainHome />
         </>
         
       );

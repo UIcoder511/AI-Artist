@@ -54,12 +54,11 @@ class SingleArtist extends Component {
          
             return (
                 <div className={displayFull?'full-single-artist':'single-artist'} onClick={!displayFull?()=>openFull(this.props.artistData):null}> 
-                    <div className="artist-pic">
-                        <img src={profilePic} className='a-pic'/>
-                    </div>
-                    <div className="artist-name">
-                        <p className='a-name'>{name}</p>
-                    </div>
+                        
+                    <img src={profilePic} className='artist-pic'/>
+
+                    <p className='artist-name'>{name}</p>
+
                     <div className={displayFull?"full-all-artworks":"all-artworks"}>
                         {
                             Object.entries(three).map(([key,art])=>{
@@ -72,7 +71,6 @@ class SingleArtist extends Component {
                         displayFull?
                         <div className='back-btn'>
                             <img src='https://firebasestorage.googleapis.com/v0/b/ai-artist-511.appspot.com/o/Logo%2Fback-button.svg?alt=media&token=ad8cbbca-6a2c-4100-824e-c8747e49b535' className='back-btn-icon' onClick={()=>goBack()}/>
-                        
                         </div>
                         :
                         null

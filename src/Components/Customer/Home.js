@@ -88,15 +88,15 @@ class Home extends Component {
 
     showModalArtContent=()=>{
 
-        document.querySelector('body').style.overflow='hidden'
+       // document.querySelector('body').style.overflow='hidden'
         this.setState({
             showModalAC:true
         })
 
     }
 
-    closeModalArtContent=()=>{
-        document.querySelector('body').style.overflow='auto'
+    onClose=()=>{
+       // document.querySelector('body').style.overflow='auto'
         this.setState({
             showModalAC:false
         })
@@ -188,7 +188,7 @@ class Home extends Component {
         switch(this.state.activeLink)
             {
                 case 'Gallery':
-                   component= <Gallery user={user} addToContent={this.addToContent}/>
+                   component= <Gallery user={user} addToContent={this.addToContent} loggedinCustomer={true} />
                    break;
 
                 case 'Artists':
@@ -196,11 +196,11 @@ class Home extends Component {
                    break;
 
                 case 'Orders':
-                    component=<Orders  user={user}/>
+                    component=<Orders  user={user} loggedinCustomer={true}/>
                     break;
 
                 case 'Chats':
-                    component=<Chats  user={user}/>
+                    component=<Chats  user={user} loggedinCustomer={true}/>
                     break;
                    
             }
@@ -234,26 +234,15 @@ class Home extends Component {
 
                 {
                     showModalAC?
-                      <div className='grid-container'>
-                        <ModalAC onClose={this.closeModalArtContent} show={this.showModalArtContent} displayOrder={true} ACwidth={true}>
-
-                                <div></div>
-                                <ModalOrder contentImage={contentImage} styleImage={styleImage}/>
-
-                                {/* <AddressPicker contentImage={this.props.contentImage} styleImage={this.props.styleImage} stylizedBase64={this.state.canvasBase64}/> */}
                       
+                        <ModalAC onClose={this.onClose} show={showModalAC}  >
 
                                 
-                                {/* <div className='style-image-container'>
-                                    <img src={styleImage} alt='select Artwork' className='style-image' />
-                                </div>
-                                <div className='stylized-image-container'>
-                                    <canvas src={opImage} alt='Stylized Image' className='stylized-image' /> 
-                                </div> */}
+                                <ModalOrder contentImage={contentImage} styleImage={styleImage} onClose={this.onClose} />
                                
                             
                         </ModalAC>
-                    </div>
+                    
                     :
                     null
                 }

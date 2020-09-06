@@ -1,46 +1,59 @@
 .image{
     top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-position: absolute;
-display: block;
-width: 20vw;
-height: 20vw;
-object-fit: cover;
-z-index: 1;
-margin: auto auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+    z-index: 7;
+    margin: auto auto;
 }
 
 .imagetop{
    
-   
+    
     top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-position: absolute;
-display: block;
-width: 20vw;
-height: 20vw;
-object-fit: cover;
-z-index: 1;
-margin: auto auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    z-index: 7;
+    margin: auto auto;
     text-align: center;
 }
 
+
+.backgroundGray{
+    position: fixed;
+    
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 6;
+}
 
     
 
 
 .imagee{
-    height: 20vw;
-         background-color: #dd2600;
-         
-
+    height: inherit;
+    width: inherit;
+    position: fixed;
+    background-color: #dd2600;
     /* filter: grayscale(100%); */
     animation: fillcolor 1s;
     opacity: 0.7;
-   transition: all ease-in-out 1s;
+    transition: all ease-in-out 1s;
     z-index: 20;
 }

@@ -49,10 +49,10 @@ export class Gallery extends Component {
 
           doneUpload=(str)=>{
             console.log(str)
-            this.setState({
-                uploading:false,
-                file:null
-            })
+            // this.setState({
+            //     uploading:false,
+            //     file:null
+            // })
             
         }
 

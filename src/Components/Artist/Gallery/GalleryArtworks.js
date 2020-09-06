@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import fire from "../../config/fire";
-import './Gallery.css';
+
 
 
 class GalleryArtworks extends Component {

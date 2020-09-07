@@ -29,7 +29,7 @@ class Upload extends Component {
 
      uploadImage=()=>{
 
-        document.getElementsByTagName('body')[0].style.overflow='hidden';
+        document.querySelector('body').style.overflow='hidden';
         let imagee=document.getElementsByClassName('imagee')[0];
 
 
@@ -58,11 +58,11 @@ class Upload extends Component {
         uploadTask.on('state_changed'
             
             ,(snapshot)=>{
-                let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                let progress = (snapshot.bytesTransferred / snapshot.totalBytes) ;
                 console.log('Upload is ' + progress + '% done');
-                let pro=parseInt(progress*(20)/100)
+                let pro=parseInt(progress)
                 console.log('width'+pro)
-                imagee.style.width=pro+'vw';
+                imagee.style.transform=`scale(${pro},1)`;
 
             }
             ,(error)=>{
@@ -74,7 +74,7 @@ class Upload extends Component {
                     {
                         console.log('File available at', downloadURL);
 
-                        if(self.props.who==='customer')
+                        if(self.props.loggedinCustomer)
                         {
                             const reff=fire.database().ref('Users/Customer/'+user.uid+'/Images');
                             reff.update({[id]:downloadURL})
@@ -99,7 +99,7 @@ class Upload extends Component {
                         // self.setState({
                         //     done:true
                         // })
-                        document.getElementsByTagName('body')[0].style.overflow='auto';
+                        document.querySelector('body').style.overflow='auto';
                         done('done')
                        // DPURL=downloadURL;
                     });  // Will return a promise with the download link
@@ -125,23 +125,21 @@ class Upload extends Component {
         else
         {
             return (
-            <div>
-                {/* Upload... */}
+                <div className='upload-container'>
                 
-                
-                {/* <img id='loadImage' style={{width:'100px',height:'100px'}} src={this.state.url}/> */}
-                     {/* <input type="file" className="fileselect" accept="image/*" onChange="DP()"/> */}
-                {/* <Modal onClose={} show={}> */}
-                    <div className="imagediv">
-                        <img  className='image' src={this.state.url}/>
-                    </div>
-                    <div className="backgroundGray"></div>
-                    <div className="imagetop">
-                        <div className="imagee"></div>
-                    </div>
-                {/* </Modal> */}
+                    <div className="upload-images">
 
-            </div>)
+                            <img  className='image' src={this.state.url}/>
+                            <div className="imagee"></div>
+
+                    </div>
+                
+                    <div className="backgroundGray"></div>
+                
+            
+
+            </div>
+            )
         }
        
         

@@ -1,59 +1,62 @@
-.image{
+
+.upload-container{
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    position: fixed;
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: fill;
-    z-index: 7;
-    margin: auto auto;
+    /* z-index: 7; */
 }
 
-.imagetop{
-   
+.upload-images{
+    z-index: 8;
+    position:fixed;
+    display:grid;
+    height: 100vh;
+    width: 100vw;
     
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    
+    z-index: 8;
     width: 200px;
     height: 200px;
     object-fit: cover;
-    z-index: 7;
-    margin: auto auto;
-    text-align: center;
+    
 }
+
+
+
+.imagee{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    /* position: fixed; */
+    background-color: var(--primary);
+    justify-self: center;
+    animation: fillcolor 1s;
+    opacity: 0.7;
+    transition: all ease-in-out 1s;
+    z-index: 20;
+    transform-origin: left;
+    transform: scale(0,1);
+}
+
 
 
 .backgroundGray{
     position: fixed;
     
-    top: 0;
+    /* top: 0; */
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.4);
     bottom: 0;
     left: 0;
-    right: 0;
-    z-index: 6;
+    z-index: 7;
 }
 
     
-
-
-.imagee{
-    height: inherit;
-    width: inherit;
-    position: fixed;
-    background-color: #dd2600;
-    /* filter: grayscale(100%); */
-    animation: fillcolor 1s;
-    opacity: 0.7;
-    transition: all ease-in-out 1s;
-    z-index: 20;
-}

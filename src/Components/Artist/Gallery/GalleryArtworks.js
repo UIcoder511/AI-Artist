@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import fire from "../../config/fire";
-import './Gallery.css';
+
 
 
 class GalleryArtworks extends Component {
@@ -67,7 +67,7 @@ class GalleryArtworks extends Component {
         return (
             <div className="image-item" key={url} >
                 <img className='i-item' src={url} />
-                <div className='close-container' onClick={this.deleteImage} > <a href="#" className="close delete-image" datakey={this.props.datakey} ></a> </div>
+                <div className='close-container' onClick={this.deleteImage} > <a href="#" className="close delete-image" datakey={this.props.firekey} ></a> </div>
                 
                 <input type='number' className='price' data={url} min='0'  onChange={e=>this.updatePrice(e.target.value)} value={this.state.artworkData.basePrice} />
                 <span className='dolors'>$</span>

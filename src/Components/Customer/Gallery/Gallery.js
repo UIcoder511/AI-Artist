@@ -133,8 +133,10 @@ export class Gallery extends Component {
 
         {
         this.state.uploading===true &&
-            <Upload done={this.doneUpload} user={this.props.user} file={this.state.file} who='customer'/>
+            <Upload done={this.doneUpload} user={this.props.user} file={this.state.file} loggedinCustomer={this.props.loggedinCustomer}/>
           }
+
+           
             
             
         </div>

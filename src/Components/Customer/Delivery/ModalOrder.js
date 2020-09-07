@@ -17,6 +17,8 @@ class ModalOrder extends Component {
         displayAddress:false,
         canvasBase64:''
     }
+
+   // this.initializeStyleTransfer();
   }
 
 
@@ -27,86 +29,32 @@ class ModalOrder extends Component {
 
 
     
-    ////////////////////////////////////
-
-
-    loadModel=()=>{
-
-
-        var styleRatio=1;
-        this.initializeStyleTransfer();
-
-        Promise.all([
-        this.loadStyleModel(),
-        
-        this.loadOriginalTransformerModel(),
-        ]).then(([styleNet, transformNet]) => {
-        console.log('Loaded styleNet');
-        this.styleNet = styleNet;
-        this.transformNet = transformNet;
-        // this.enableStylizeButtons()
-        this.styleButton.textContent = 'Create';
-        })
-
-    }
-
-    
-  loadStyleModel=async ()=> {
-    if (!this.StyleNet) {
-      this.StyleNet = await tf.loadGraphModel(
-        //'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/yining%2Fmanifest.json?alt=media&token=746c2121-eab8-4c95-bce6-a11432c3f96f'
-        //'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/model.json?alt=media&token=5dd6d798-00fc-49db-9f51-6d30d996d983'
-       //'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/zmodel.json?alt=media&token=91be1cc3-6421-4982-890b-ee5a9b8abcaf'
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/modelInV3.json?alt=media&token=e05d1d56-0ba3-4ad5-a978-755483e81bbe'
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/modelVGG19.json?alt=media&token=6258855d-b1d1-4061-b5bb-34b79d4e4a29'
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/modelMV2.json?alt=media&token=e263d7e7-2622-46eb-97fb-f4b4152d0859'
-       //'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/modelMV2cpy.json?alt=media&token=3268f342-3655-4926-a7c6-f314f0399399'
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/tmodel.json?alt=media&token=d38eca7f-8a02-46b2-8102-8bfbc10fb022'
-      'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/model.json?alt=media&token=5dd6d798-00fc-49db-9f51-6d30d996d983' 
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/model2.json?alt=media&token=0e7bff37-5634-474c-9862-fd7261edcafb'
-      // 'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/modelmodel.json?alt=media&token=e7da912f-4e98-4051-a9de-c63b0e9f81c3'
-      );
-      }
-
-    return this.StyleNet;
-  }
-
-
-  async loadOriginalTransformerModel() {
-    if (!this.originalTransformNet) {
-      this.originalTransformNet = await tf.loadGraphModel(
-        'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/sepmodel.json?alt=media&token=236864f2-2f9b-47a8-a3c6-1400ff7068b5'
-        //'https://firebasestorage.googleapis.com/v0/b/voicemusic-8f29b.appspot.com/o/model2.json?alt=media&token=0e7bff37-5634-474c-9862-fd7261edcafb'
-      );
-    }
-
-    return this.originalTransformNet;
-  }
-
+   
 
 
 
 
     
       initializeStyleTransfer=()=> {
-        // Initialize images
-        // <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.1/dist/tf.min.js"></script>
-        this.contentImg = document.getElementById('content-image');
-        // this.contentImg.onerror = () => {
-        //   alert("Error loading " + this.contentImg.src + ".");
-        // }
-        this.styleImg = document.getElementById('style-image');
-        // this.styleImg.onerror = () => {
-        //   alert("Error loading " + this.styleImg.src + ".");
-        // }
-        this.stylized = document.getElementById('stylized-image');
-        console.log('aaaaaaa')
-    
-        this.styleButton = document.getElementById('style-btn');
-        this.styleButton.onclick = () => {
-         
-          this.startStyling();
-        };
+          // Initialize images
+          // <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.1/dist/tf.min.js"></script>
+          this.contentImg = document.getElementById('content-image');
+          // this.contentImg.onerror = () => {
+          //   alert("Error loading " + this.contentImg.src + ".");
+          // }
+          this.styleImg = document.getElementById('style-image');
+          // this.styleImg.onerror = () => {
+          //   alert("Error loading " + this.styleImg.src + ".");
+          // }
+          this.stylized = document.getElementById('stylized-image');
+          
+      
+          this.styleButton = document.getElementById('style-btn');
+          this.styleButton.textContent = 'Create';
+          this.styleButton.onclick = () => {
+          
+            this.startStyling();
+          };
       }
     
     
@@ -124,7 +72,7 @@ class ModalOrder extends Component {
           const tensor_style=styleimage.toFloat().div(tf.scalar(255)).expandDims();
           console.log(styleimage)
           console.log(tensor_style)
-          const opiv3=this.styleNet.predict(tensor_style);
+          const opiv3=this.props.styleNet.predict(tensor_style);
           return opiv3
         })
        
@@ -132,7 +80,7 @@ class ModalOrder extends Component {
         await tf.nextFrame();
         const stylized = await tf.tidy(() => {
           const contentimagetensor=tf.browser.fromPixels(this.contentImg).toFloat().div(tf.scalar(255)).expandDims()
-          const op=this.transformNet.predict([contentimagetensor, bottleneck])
+          const op=this.props.transformNet.predict([contentimagetensor, bottleneck])
           const opimage=op.squeeze();
           return opimage
         })
@@ -190,7 +138,7 @@ class ModalOrder extends Component {
       //  if(this.props.ACwidth)
             // console.log('added')
             // window.addEventListener('mousedown',this.checker);
-             this.loadModel()
+             this.initializeStyleTransfer();
 
 
 

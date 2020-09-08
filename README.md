@@ -3,8 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Preview: https://ai-artist-511.web.app/#
 
-Documentation with screenshots: https://docs.google.com/document/d/1lPQyVU2CAtNu5d87JDlhe_Qt1bBu-kikBrhWDrAmU4E/edit
-
+Documentation with screenshots: https://drive.google.com/file/d/1A7bBeNzy_anLqxhTpEoEUKfmNwG7sXmL/view?usp=sharing
 
 
 

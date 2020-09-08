@@ -18,7 +18,7 @@ const ProfilePic=({dp,name}) => {
     
         return (
             <>
-               <img className='profile-pic'  src={dp} onClick={openProfileOptions}/>
+               <img className='profile-pic'  src={dp} onClick={openProfileOptions} />
                {isOpenProfileProps?<ProfileOps dp={dp} name={name} checker={openProfileOptions}  />:null} 
             </>
         )

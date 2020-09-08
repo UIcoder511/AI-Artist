@@ -35,33 +35,49 @@ class Nav extends Component {
 
     
     checker=(e)=>{
+        let y=document.querySelector('#navButton');
         console.log(e.target)
         if (!document.getElementById('myNav').contains(e.target)){
             console.log('removed')
+            
             window.removeEventListener('mousedown',this.checker);
             document.getElementById('myNav').className = "nav-links";
-          } 
+            y.style.display='block'
+          }
+          
     }
 
 
     makeClassResponsive=()=>{
+        console.log('make')
         let x=document.getElementById('myNav');
-   
+        let y=document.querySelector('#navButton');
+        console.log(y)
+        y.style.display='none'
+       // y.removeAttribute('onClick');
 
         if (x.className === "nav-links"){// && y.className==="lout") {
-            
+               
                 window.addEventListener('mousedown',this.checker);
 
                 x.className += " nav-responsive";
    
-            
+             }
             // y.className += " lout-responsive"
-          } else {
-            window.removeEventListener('mousedown',this.checker);
-            x.className = "nav-links";
-            // y.className = "lout"
-          }
+        //   } else {
+        //     y.addEventListener('click',this.makeClassResponsive);
+        //     window.removeEventListener('mousedown',this.checker);
+        //     x.className = "nav-links";
+        //     // y.className = "lout"
+        //   }
           
+    }
+
+
+    componentDidMount()
+    {
+        let y=document.querySelector('#navButton');
+        y.addEventListener('click',this.makeClassResponsive);
     }
 
     
@@ -99,8 +115,8 @@ class Nav extends Component {
 
                     <ProfilePic dp={this.props.user.photoURL} name={this.props.user.displayName}/>       
                     
-                    <div id="navButton">
-                         <FontAwesomeIcon icon={faBars} onClick={this.makeClassResponsive}/>
+                    <div id="navButton" >
+                         <FontAwesomeIcon icon={faBars} />
                      </div> 
                 
                

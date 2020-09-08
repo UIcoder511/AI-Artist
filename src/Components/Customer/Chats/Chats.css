@@ -9,8 +9,9 @@
     border-radius: 100px;
     margin-bottom: 30px;
     /* border: none; */
-    min-width: 200px;
-    max-width: 30vw;
+    /* min-width: 200px; */
+    /* max-width: 30vw; */
+    width: 200px;
     border: 2px #aaaaaa solid;
     align-items: center;
 }
